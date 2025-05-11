@@ -33,7 +33,7 @@ export function MatrixHolder({size, setsize, matrixEntries, setEntries}: {
         <input value={s} onChange={editsize}></input>
         {matrixEntries.map((row: [string], i: number) => {
             return row.map((n: string, j: number) => {
-                return <input value={n} onChange={editMatrix} dataset-key={i*size+j}></input>;
+                return <input value={n} dataset-key={i*size+j}></input>;
             })
         })}
     </div>;
