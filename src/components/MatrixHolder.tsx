@@ -20,13 +20,11 @@ export function MatrixHolder({size, setsize, matrixEntries, setEntries}: {
         setEntries(arr);
         return;
     }
-    function editMatrix(event: React.ChangeEvent<HTMLInputElement>) {
-        console.log(event.target.dataset.key);
-        const datakey = event.target.dataset.key ?? "0";
+    function editMatrix(row: number, col: number, event: React.ChangeEvent<HTMLInputElement>) {
         const newentries: string[][] = matrixEntries.map((c, i) => {
-        if (i === parseInt(datakey)/size) {
+        if (i === row) {
             return c.map((c2, j) => {
-                if(j === parseInt(datakey)%size){
+                if(j === col){
                     return event.currentTarget.value;
                 }
                 else{
@@ -45,10 +43,26 @@ export function MatrixHolder({size, setsize, matrixEntries, setEntries}: {
     return <div>
         <Button onClick={()=>resize()}>resize matrix</Button>
         <input value={s} onChange={editsize}></input>
-        {matrixEntries.map((row: string[], i: number) => {
-            return row.map((n: string, j: number) => {
-                return <input value={n} onChange={editMatrix} dataset-key={i*size+j}></input>;
-            })
-        })}
+        <table>
+        <tbody>
+          {matrixEntries.map((row, rowIndex) => (
+            <tr key={rowIndex}>
+              {row.map((cell, colIndex) => (
+                <td key={`${rowIndex}-${colIndex}`}>
+                  <input
+                    type="text"
+                    value={cell}
+                    onChange={(e) => editMatrix(rowIndex, colIndex, e)}
+                    style={{ width: '60px', textAlign: 'center' }}
+                    // Use data attributes to store indices (optional)
+                    data-row={rowIndex}
+                    data-col={colIndex}
+                  />
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>;
 }
