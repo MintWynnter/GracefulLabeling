@@ -10,11 +10,12 @@ export function MatrixHolder({size, setsize, matrixEntries, setEntries}: {
 }): JSX.Element {
     const [s, sets] = useState<string>("");
     function resize(): void{
-        setsize(parseInt(s));
+        const newsize = parseInt(s);
+        setsize(newsize);
         let arr: [[number]] = [[0]];
-        for (let i = 0; i < size; i++) {
+        for (let i = 0; i < newsize; i++) {
             arr[i] = [0];
-            for(let j = 0; j < size; j++)
+            for(let j = 0; j < newsize; j++)
                 arr[i][j] = 0;
         }
         setEntries(arr);
