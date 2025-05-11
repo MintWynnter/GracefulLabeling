@@ -22,7 +22,9 @@ export function MatrixHolder({size, setsize, matrixEntries, setEntries}: {
         return;
     }
     function editMatrix(event: React.ChangeEvent<HTMLInputElement>) {
-        setEntries([[parseInt(event.currentTarget.value)]]);
+        const datakey = event.target.dataset.key ?? "0";
+        matrixEntries[parseInt(datakey)/size][parseInt(datakey)%size] = parseInt(event.currentTarget.value);
+        setEntries(matrixEntries);
     }
     function editsize(event: React.ChangeEvent<HTMLInputElement>) {
         sets(event.currentTarget.value);
@@ -30,9 +32,9 @@ export function MatrixHolder({size, setsize, matrixEntries, setEntries}: {
     return <div>
         <Button onClick={()=>resize()}>resize matrix</Button>
         <input value={s} onChange={editsize}></input>
-        {matrixEntries.map((row: [number]) => {
-            return row.map((n: number) => {
-                return <input value={n} onChange={editMatrix}></input>;
+        {matrixEntries.map((row: [number], i: number) => {
+            return row.map((n: number, j: number) => {
+                return <input value={n} onChange={editMatrix} dataset-key={i*size+j}></input>;
             })
         })}
     </div>;
