@@ -21,6 +21,7 @@ export function MatrixHolder({size, setsize, matrixEntries, setEntries}: {
         return;
     }
     function editMatrix(event: React.ChangeEvent<HTMLInputElement>) {
+        console.log(event.target.dataset.key);
         const datakey = event.target.dataset.key ?? "0";
         const newentries: string[][] = matrixEntries.map((c, i) => {
         if (i === parseInt(datakey)/size) {
