@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/GracefulLabeling/static/css/main.f855e6bc.css",
-    "main.js": "/GracefulLabeling/static/js/main.d0311d3c.js",
+    "main.js": "/GracefulLabeling/static/js/main.fd5c2943.js",
     "static/js/453.d97ccdf1.chunk.js": "/GracefulLabeling/static/js/453.d97ccdf1.chunk.js",
     "index.html": "/GracefulLabeling/index.html",
     "main.f855e6bc.css.map": "/GracefulLabeling/static/css/main.f855e6bc.css.map",
-    "main.d0311d3c.js.map": "/GracefulLabeling/static/js/main.d0311d3c.js.map",
+    "main.fd5c2943.js.map": "/GracefulLabeling/static/js/main.fd5c2943.js.map",
     "453.d97ccdf1.chunk.js.map": "/GracefulLabeling/static/js/453.d97ccdf1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.d0311d3c.js"
+    "static/js/main.fd5c2943.js"
   ]
 }
