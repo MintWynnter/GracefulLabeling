@@ -5,7 +5,7 @@ import { MatrixHolder } from './components/MatrixHolder';
 
 function App() {
   const [size, setsize] = useState<number>(5);
-  const [entries, setentries] = useState<[[number]]>([[0]]);
+  const [entries, setentries] = useState<[[string]]>([["0"]]);
   return (
     <div className="App">
       <MatrixHolder size={size} setsize={setsize} matrixEntries={entries} setEntries={setentries}></MatrixHolder>
