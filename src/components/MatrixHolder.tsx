@@ -8,12 +8,29 @@ export function MatrixHolder({size, setsize, matrixEntries, setEntries}: {
     setsize: (c: number) => void;
     setEntries: (c: [[number]]) => void;
 }): JSX.Element {
-    function resize(newsize: number): void{
-        setsize(newsize);
+    function resize(): void{
+        let arr: [[number]] = [[0]];
+        for (let i = 0; i < size; i++) {
+            arr[i] = [0];
+            for(let j = 0; j < size; j++)
+                arr[i][j] = 0;
+        }
+        setEntries(arr);
         return;
+    }
+    function editMatrix(event: React.ChangeEvent<HTMLInputElement>) {
+        setEntries([[parseInt(event.currentTarget.value)]]);
+    }
+    function editsize(event: React.ChangeEvent<HTMLInputElement>) {
+        setsize(parseInt(event.currentTarget.value));
     }
     return <div>
         <Button onClick={()=>resize(size)}>resize matrix</Button>
-        <Matrix size={size} entries={matrixEntries} setentries={setEntries}></Matrix>
+        <input value={size} onChange={editsize}></input>
+        {matrixEntries.map((row: [number]) => {
+            return row.map((n: number) => {
+                return <input value={n} onChange={editMatrix}></input>;
+            })
+        })}
     </div>;
 }
