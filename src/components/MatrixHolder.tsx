@@ -25,7 +25,7 @@ export function MatrixHolder({size, setsize, matrixEntries, setEntries}: {
         setsize(parseInt(event.currentTarget.value));
     }
     return <div>
-        <Button onClick={()=>resize(size)}>resize matrix</Button>
+        <Button onClick={()=>resize()}>resize matrix</Button>
         <input value={size} onChange={editsize}></input>
         {matrixEntries.map((row: [number]) => {
             return row.map((n: number) => {
