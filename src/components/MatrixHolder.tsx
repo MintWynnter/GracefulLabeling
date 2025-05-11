@@ -1,6 +1,6 @@
 import React, { JSX } from 'react';
 import { Button } from 'react-bootstrap';
-import { Matrix } from './matrix';
+import { Matrix } from './Matrix';
 
 export function MatrixHolder({size, setsize, matrixEntries, setEntries}: {
     size: number;
