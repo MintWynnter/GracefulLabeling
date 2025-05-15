@@ -22,7 +22,7 @@ export function isGraceful(mat: number[][]): boolean{
         if(!edges[i] && t){
             return false;
         }
-        else if(!edges[i]){
+        else if(edges[i]){
             t = true;
         }
     }
