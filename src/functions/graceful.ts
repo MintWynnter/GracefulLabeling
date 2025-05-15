@@ -18,9 +18,8 @@ export function isGraceful(mat: number[][]): boolean{
         }
     }
     let t: boolean = false;
-    console.log(edges);
     for(let i = 0; i < edges.length; i++){
-        if(edges[i] && t){
+        if(!edges[i] && t){
             return false;
         }
         else if(!edges[i]){
