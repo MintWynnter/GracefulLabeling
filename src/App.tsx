@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="App">
       <p>Input the size of the matrix below, then input the matrix in the table.<br></br>The table should be filled in as follows:<br></br>
-      The rows and columns represent the vertices. They are labeled strating from 0. The entries in the array should be marked with the labeling of the edge connecting the two vertices. A label of 0 indicates that there is no edge.<br></br>
+      The rows and columns represent the vertices. They are labeled strating from 0. Put any non-zero number to indicate an edge. A label of 0 indicates that there is no edge.<br></br>
       Please only input numbers, as otherwise, the code may break.</p>
       <MatrixHolder size={size} setsize={setsize} matrixEntries={entries} setEntries={setentries}></MatrixHolder>
       <Button onClick={()=>checkGraceful()}>Check if graceful</Button>

@@ -6,7 +6,6 @@ export function isGraceful(mat: number[][]): boolean{
     for(let r = 0; r < mat.length; r++){
         for(let c = 0; c < r; c++){
             if(mat[r][c] === 0){continue;}
-            if(!(Math.abs(r-c) === mat[r][c])){return false;}
             else{
                 if(edges[Math.abs(r-c) - 1]){
                     edges[Math.abs(r-c) - 1] = false;
